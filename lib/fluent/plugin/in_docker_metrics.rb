@@ -17,7 +17,7 @@ module Fluent
       require 'socket'
       require 'docker'
       @hostname = Socket.gethostname
-      @with_systemd = File.exists?("#{@cgroup_path}/systemd")
+      @with_systemd = false # Running inside docker-container, no idea why this breaks
     end
 
     def configure(conf)
